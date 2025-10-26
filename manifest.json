@@ -1,0 +1,7 @@
+{
+  "name": "My App",
+  "short_name": "MyApp",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "icons": [{"src": "images/pixel.jpg", "sizes": "192x192"}]
+}
