@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pixel Power - Tech Haven</title>
+  <link rel="stylesheet" href="styles.css" />
+<link rel="manifest" href="manifest.json">
+  <!-- TOP SECRET font - custom font face imported, you can replace with actual font file -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <div class="top-offer-bar">
+      <p>Get 20% OFF on October Deals!</p>
+      <button id="closeOfferBtn">Close Offer</button>
+    </div>
+    <nav>
+      <div class="logo">
+        <!-- Attach your logo image here -->
+        <img src="images/Pixel.jpg" alt="Pixel Power Logo" class="pixel"/>
+        <span class="logo-icon">🛒</span>
+        <span class="logo-text">Pixel Power</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#" class="nav-link active" data-page="home"><span class="nav-icon">🏠</span>Home</a></li>
+        <li><a href="#" class="nav-link" data-page="shop"><span class="nav-icon">🛍️</span>Shop</a></li>
+        <li><a href="#" class="nav-link" data-page="about"><span class="nav-icon">ℹ️</span>About</a></li>
+        <li><a href="#" class="nav-link" data-page="contact"><span class="nav-icon">✉️</span>Contact</a></li>
+      </ul>
+      <div class="nav-controls">
+        <div class="search-bar">
+          <input type="text" id="searchInput" placeholder="Search products..." />
+          <button id="searchBtn" aria-label="Search">&#128269;</button> <!-- Search Icon -->
+        </div>
+        <div class="cart-icon" id="cartIcon" aria-label="Cart">
+          🛒<span id="cartCount" class="cart-count">0</span>
+        </div>
+        <div class="auth-controls">
+          <button id="loginBtn" class="btn">Login</button>
+          <button id="signupBtn" class="btn">Sign Up</button>
+          <button id="signoutBtn" class="btn hidden">Sign Out</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Dynamic content loaded by JavaScript -->
+    <div id="contentContainer"></div>
+  </main>
+
+  <!-- Login Modal -->
+  <div class="modal hidden" id="loginModal" aria-hidden="true">
+    <div class="modal-content">
+      <span class="close-modal" id="loginCloseBtn">&times;</span>
+      <h2>Login</h2>
+      <form id="loginForm">
+        <label for="loginEmail">Email:</label>
+        <input type="email" id="loginEmail" required />
+        <label for="loginPassword">Password:</label>
+        <input type="password" id="loginPassword" required />
+        <button type="submit" class="btn">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Signup Modal -->
+  <div class="modal hidden" id="signupModal" aria-hidden="true">
+    <div class="modal-content">
+      <span class="close-modal" id="signupCloseBtn">&times;</span>
+      <h2>Sign Up</h2>
+      <form id="signupForm">
+        <label for="signupEmail">Email:</label>
+        <input type="email" id="signupEmail" required />
+        <label for="signupPassword">Password:</label>
+        <input type="password" id="signupPassword" required />
+        <button type="submit" class="btn">Sign Up</button>
+      </form>
+    </div>
+  </div>
+  <!-- NEW -->
+  
+<nav class="social-links">
+    <a href="#" title="Facebook">
+        Facebook
+        <span class="hover-icon">
+            <!-- Facebook SVG Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="#6366f1" viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.596 0 0 .593 0 1.326v21.348C0 23.406.596 24 1.325 24h11.494v-9.294H9.688v-3.622h3.13V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.466.099 2.8.143v3.24l-1.922.001c-1.506 0-1.797.716-1.797 1.765v2.315h3.592l-.468 3.622h-3.124V24h6.116C23.405 24 24 23.406 24 22.674V1.326C24 .593 23.405 0 22.675 0z"/></svg>
+        </span>
+    </a>
+    <a href="#" title="Instagram">
+        Instagram
+        <span class="hover-icon">
+            <!-- Instagram SVG Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="#6366f1" viewBox="0 0 24 24"><path d="M7.5 2h9A5.5 5.5 0 0122 7.5v9a5.5 5.5 0 01-5.5 5.5h-9A5.5 5.5 0 012 16.5v-9A5.5 5.5 0 017.5 2zm.75 2a3.5 3.5 0 00-3.5 3.5v7a3.5 3.5 0 003.5 3.5h7a3.5 3.5 0 003.5-3.5v-7a3.5 3.5 0 00-3.5-3.5h-7zm8.75 1.25a1 1 0 110 2 1 1 0 010-2zm-4.25 1.75a4 4 0 110 8 4 4 0 010-8zm0 2a2 2 0 100 4 2 2 0 000-4z"/></svg>
+        </span>
+    </a>
+    <a href="#" title="Telegram">
+        Telegram
+        <span class="hover-icon">
+            <!-- Telegram SVG Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="#6366f1" viewBox="0 0 24 24"><path d="M22.54 2.344l-3.57 16.836c-.27 1.215-1.005 1.527-2.04.95l-5.63-4.144-2.715 2.615a1.495 1.495 0 01-1.055.433l.38-5.37 9.76-8.812c.429-.38-.093-.595-.662-.214L6.44 11.068 2.158 9.12c-1.18-.37-1.203-1.18.248-1.754L20.374 3c.895-.35 1.68.216 1.666.645z"/></svg>
+        </span>
+    </a>
+    <a href="#" title="X">
+        X
+        <span class="hover-icon">
+            <!-- X (Twitter) SVG Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="#6366f1" viewBox="0 0 24 24"><path d="M22.46 6.003c-.77.343-1.57.575-2.42.68a4.227 4.227 0 001.854-2.345 8.446 8.446 0 01-2.68 1.025 4.216 4.216 0 00-7.19 3.842A11.97 11.97 0 013 4.88a4.22 4.22 0 001.304 5.632 4.19 4.19 0 01-1.91-.528v.05a4.213 4.213 0 003.383 4.132 4.26 4.26 0 01-1.903.073 4.215 4.215 0 003.937 2.93A8.458 8.458 0 012 18.58a11.946 11.946 0 006.464 1.896c7.757 0 12-6.426 12-12 0-.183-.004-.365-.012-.546a8.59 8.59 0 002.108-2.19z"/></svg>
+        </span>
+    </a>
+</nav>
+
+<!-- Button example -->
+<button class="button">Shop Now</button>
+
+
+  <script src="script.js"></script>
+</body>
+</html>

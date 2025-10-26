@@ -1,0 +1,613 @@
+/* Global Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Orbitron', sans-serif; /* TOP SECRET as Orbitron placeholder */
+}
+
+body {
+  background-color: #121212;
+  color: #eee;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top offer bar */
+.top-offer-bar {
+  background-color: #1b2838;
+  color: #7fff00;  /* Neon green */
+  text-align: center;
+  padding: 8px 15px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.top-offer-bar button {
+  position: absolute;
+  right: 15px;
+  background: transparent;
+  border: none;
+  color: #7fff00;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Navigation */
+header {
+  background-color: #181a1f;
+  box-shadow: 0 2px 5px rgba(0,255,0,0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  padding: 15px 20px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #0f0; /* Neon green */
+  cursor: pointer;
+  user-select: none;
+}
+
+.logo-icon {
+  margin-right: 10px;
+  font-size: 2rem;
+  filter: drop-shadow(0 0 4px #00ff00);
+}
+
+.logo-text {
+  font-family: 'Orbitron', monospace;
+  text-shadow: 0 0 5px #0f0, 0 0 10px #0f0, 0 0 15px #0f0;
+}
+
+/* Navigation Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links li {
+}
+
+.nav-link {
+  color: #ddd;
+  text-decoration: none;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.nav-link .nav-icon {
+  font-size: 1.3rem;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #7fff00;
+  text-shadow: 0 0 6px #7fff00;
+  background-color: rgba(127, 255, 0, 0.1);
+  box-shadow: 0 0 15px #7fff00;
+}
+
+/* Nav controls: Search, cart and auth buttons */
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: nowrap;
+}
+
+/* Search bar */
+.search-bar {
+  position: relative;
+}
+
+.search-bar input[type="text"] {
+  padding: 8px 35px 8px 12px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  width: 180px;
+  transition: width 0.3s ease;
+}
+
+.search-bar input[type="text"]:focus {
+  width: 250px;
+  background-color: #222;
+  color: #7fff00;
+  box-shadow: 0 0 8px #7fff00;
+}
+
+.search-bar button {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  color: #7fff00;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Cart Icon */
+.cart-icon {
+  position: relative;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #7fff00;
+  user-select: none;
+  filter: drop-shadow(0 0 4px #7fff00);
+}
+
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background-color: #7fff00;
+  color: #121212;
+  font-weight: 900;
+  font-size: 0.85rem;
+  padding: 2px 6px;
+  border-radius: 12px;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Auth Controls */
+.auth-controls button {
+  background: transparent;
+  border: 1.5px solid #7fff00;
+  border-radius: 25px;
+  padding: 7px 15px;
+  color: #7fff00;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.auth-controls button:hover {
+  background-color: #7fff00;
+  color: #121212;
+  box-shadow: 0 0 10px #7fff00;
+}
+
+.auth-controls button.hidden {
+  display: none;
+}
+
+/* Main content container */
+main {
+  max-width: 1200px;
+  margin: 25px auto;
+  padding: 0 15px 50px;
+  flex-grow: 1;
+}
+
+/* Pages common styles */
+.page {
+  color: #ddd;
+}
+
+/* Home page */
+#homePage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  align-items: center;
+}
+
+.home-banner {
+  background-color: #1b443d; /* luminous teal */
+  color: #d6f7e2;
+  border-radius: 15px;
+  padding: 25px 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.home-banner small {
+  background-color: #33cc33;
+  padding: 5px 12px;
+  border-radius: 25px;
+  font-weight: 600;
+  color: #001100;
+  width: fit-content;
+  margin-bottom: 15px;
+  user-select: none;
+  letter-spacing: 0.5px;
+}
+
+.home-banner h1 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.home-banner strong {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  display: block;
+  font-weight: 600;
+}
+
+.home-banner button {
+  width: 140px;
+  padding: 12px 0;
+  background-color: #001100;
+  border: none;
+  border-radius: 30px;
+  color: #7fff00;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  box-shadow: 0 0 10px #7fff00;
+  transition: all 0.4s ease;
+  user-select: none;
+}
+
+.home-banner button:hover {
+  background-color: #004400;
+  box-shadow: 0 0 20px #00ff00;
+}
+
+.home-image {
+  width: 100%;
+  border-radius: 15px;
+  user-select: none;
+  filter: drop-shadow(0 0 10px #7fff00);
+}
+
+/* Promo blocks right side */
+.promo-blocks {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: 1fr;
+}
+
+.promo {
+  border-radius: 15px;
+  padding: 20px 20px;
+  text-align: center;
+  box-shadow: 0 0 10px #00ff00a0;
+  font-weight: 600;
+  color: #121212;
+  user-select: none;
+}
+
+.promo.best {
+  background-color: #ffefc8;
+}
+
+.promo.discount {
+  background-color: #a5c9ff;
+}
+
+/* Shop page */
+#shopPage {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
+  gap: 20px;
+}
+
+.product-card {
+  background-color: #1e1e1e;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 0 8px #00770088;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.product-card:hover {
+  box-shadow: 0 0 15px #7fff00;
+}
+
+.product-image {
+  width: 100%;
+  border-radius: 15px;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.product-info {
+  flex-grow: 1;
+}
+
+.product-name {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: #7fff00;
+  font-weight: 700;
+}
+
+.product-price {
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: #ddffdd;
+  user-select: none;
+}
+
+.add-cart-btn {
+  background-color: #007700;
+  color: #ddffdd;
+  border: none;
+  padding: 10px;
+  border-radius: 30px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 0 10px #00ff00;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.add-cart-btn:hover {
+  background-color: #00bb00;
+  box-shadow: 0 0 18px #00ff00;
+}
+
+.add-cart-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* About and Contact pages */
+#aboutPage, #contactPage {
+  font-size: 1.2rem;
+  line-height: 1.7rem;
+  padding: 10px;
+  color: #ccc;
+}
+
+/* Modal styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(20, 20, 20, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  z-index: 1500;
+}
+
+.modal-content {
+  background-color: #222;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 100%;
+  padding: 25px 30px;
+  color: #ccc;
+  position: relative;
+  box-shadow: 0 0 15px #7fff00;
+}
+
+.modal-content h2 {
+  margin-bottom: 20px;
+  color: #7fff00;
+  user-select: none;
+}
+
+.modal-content label {
+  display: block;
+  color: #7fff00;
+  margin: 10px 0 5px;
+  user-select: none;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: #121212;
+  color: #7fff00;
+  font-size: 1rem;
+  user-select: text;
+}
+
+.modal-content button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px 0;
+  border: none;
+  border-radius: 30px;
+  background-color: #7fff00;
+  font-weight: 800;
+  color: #121212;
+  cursor: pointer;
+  box-shadow: 0 0 15px #00ff00;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+  background-color: #00cc00;
+}
+
+.close-modal {
+  position: absolute;
+  top: 8px;
+  right: 15px;
+  font-size: 1.5rem;
+  color: #7fff00;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Utility classes */
+.hidden {
+  display: none !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .nav-links {
+    flex-basis: 100%;
+    justify-content: space-around;
+    margin-top: 10px;
+  }
+  #homePage {
+    grid-template-columns: 1fr;
+  }
+  .home-banner {
+    order: 2;
+    margin-top: 20px;
+  }
+  .promo-blocks {
+    order: 1;
+  }
+  .search-bar input[type="text"] {
+    width: 130px;
+  }
+  .search-bar input[type="text"]:focus {
+    width: 160px;
+  }
+}
+
+@media (max-width: 400px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .search-bar input[type="text"] {
+    width: 100px;
+  }
+  .search-bar input[type="text"]:focus {
+    width: 130px;
+  }
+}
+
+/* New */
+/* Importing the font similar to Tech Haven */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+}
+
+/* Styling for links */
+a {
+    color: #1e293b;
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+    padding-right: 30px; /* space for icon on hover */
+    transition: color 0.3s ease;
+}
+
+/* Hover effect - icon appears on right */
+a:hover {
+    color: #6366f1; /* using indigo-500 from Tailwind for a techy purple */
+}
+
+/* Icon container */
+a .hover-icon {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Show the icon on hover */
+a:hover .hover-icon {
+    opacity: 1;
+}
+
+/* Button Styling */
+.button {
+    background: linear-gradient(90deg, #6366f1, #8b5cf6); /* Indigo 500 to Violet 500 gradient */
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.5);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button:hover {
+    background: linear-gradient(90deg, #8b5cf6, #6366f1);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.7);
+}
+
+/* Container for social links (optional styling) */
+.social-links a {
+    display: inline-block;
+    margin-right: 15px;
+    position: relative;
+}
+
+/* Example icons can be SVG or font icons placed inside span.hover-icon */
+/* Replace these placeholders with actual SVG or icon fonts */
+
+.promo-image {
+  width: 200px;
+  height: auto;
+  border-radius: 10px;/* keeps the aspect ratio */
+}
+
+.pixel {
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  color: #00cc00;
+}
+.products-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* space between rows and columns */
+  justify-content: center; /* center the grid */
+}
+
+.product-card {
+  flex: 1 1 200px; /* grow, shrink, basis width */
+  max-width: 200px;
+}
