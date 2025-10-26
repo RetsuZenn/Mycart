@@ -612,20 +612,3 @@ a:hover .hover-icon {
   max-width: 200px;
 }
 
-.product-image {
-    width: 100%;
-    height: auto;
-    max-width: 300px; /* Adjust this value according to your design */
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-.product-card {
-    width: 300px; /* Adjust for fitting multiple cards side by side */
-    margin: 10px;
-}
-.products-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
